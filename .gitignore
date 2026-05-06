@@ -1,0 +1,9 @@
+node_modules/
+.npm/
+.opencode/
+.local/
+.ssh/
+*.log
+*.shm
+*.wal
+package-lock.json
