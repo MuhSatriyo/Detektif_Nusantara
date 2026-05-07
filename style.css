@@ -68,7 +68,13 @@ body {
   align-items: center;
   gap: 0;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  transition: var(--transition);
+  transition: all 0.4s var(--ease-out);
+}
+
+.sidebar-menu.hidden {
+  opacity: 0;
+  transform: translateY(-50%) translateX(-100%);
+  pointer-events: none;
 }
 
 .sidebar-item span {

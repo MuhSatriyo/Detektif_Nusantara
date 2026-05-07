@@ -263,6 +263,17 @@ function updateMissionStars() {
   }
 }
 
+function toggleSidebar(show) {
+  const sidebar = document.getElementById('sidebar-menu');
+  if (sidebar) {
+    if (show) {
+      sidebar.classList.remove('hidden');
+    } else {
+      sidebar.classList.add('hidden');
+    }
+  }
+}
+
 // ==========================================
 // HOME / MISSIONS
 // ==========================================
@@ -276,6 +287,7 @@ function startAdventure() {
 
     heroArea.classList.add('hidden');
     missionsSection.classList.add('visible');
+    toggleSidebar(false);
   }
 }
 
@@ -287,6 +299,7 @@ function goHomeFromMissions() {
 
   heroArea.classList.remove('hidden');
   missionsSection.classList.remove('visible');
+  toggleSidebar(true);
 }
 
 function goHome() {
@@ -299,6 +312,7 @@ function goHome() {
 
   heroArea.classList.remove('hidden');
   missionsSection.classList.remove('visible');
+  toggleSidebar(true);
 
   updateUserDisplay();
   updateMissionStars();
