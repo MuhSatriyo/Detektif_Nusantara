@@ -718,13 +718,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 40px;
   opacity: 0;
   transform: scale(0.9) translateY(40px);
   pointer-events: none;
   transition: opacity 0.5s var(--ease-out), transform 0.5s var(--bounce);
   background: transparent;
+  overflow-y: auto;
 }
 
 .missions-section.visible {
@@ -2174,5 +2175,676 @@ body {
   .user-name {
     max-width: 80px;
     font-size: 0.85rem;
+  }
+}
+
+/* ========================================
+   COMPREHENSIVE RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet & Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 30px 40px;
+    gap: 30px;
+  }
+  
+  .main-title {
+    font-size: 3.5rem;
+  }
+  
+  .detective-img {
+    width: 220px;
+  }
+  
+  .btn-start {
+    padding: 16px 40px;
+    font-size: 1.3rem;
+  }
+  
+  .sidebar-menu {
+    padding: 15px 8px;
+  }
+  
+  .sidebar-item {
+    padding: 12px 12px;
+  }
+  
+  .quiz-container {
+    padding: 16px;
+  }
+  
+  .dd-container {
+    padding: 16px;
+    gap: 24px;
+  }
+  
+  .developer-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .developer-image {
+    width: 120px;
+    height: 150px;
+  }
+  
+  .bio-row {
+    justify-content: center;
+  }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  /* Sidebar - Icon only mode on mobile */
+  .sidebar-menu {
+    width: 70px;
+    padding: 10px 4px;
+    border-radius: 0 16px 16px 0;
+  }
+  
+  /* Missions Section Scrollable */
+  .missions-section::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .missions-section::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .missions-section::-webkit-scrollbar-thumb {
+    background: rgba(242, 153, 74, 0.4);
+    border-radius: 4px;
+  }
+  
+  .sidebar-item {
+    padding: 12px 4px;
+    gap: 2px;
+  }
+  
+  .sidebar-item span {
+    font-size: 0.6rem;
+    line-height: 1.1;
+    max-width: 60px;
+    white-space: normal;
+  }
+  
+  .sidebar-item .sidebar-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  /* Top Bar - default padding for sidebar space */
+  .top-bar {
+    padding: 12px 16px 12px 75px;
+  }
+  
+  /* When sidebar is hidden, use full width */
+  .sidebar-menu.hidden ~ .top-bar {
+    padding-left: 16px;
+  }
+  
+  .user-badge {
+    padding: 6px 10px;
+  }
+  
+  .user-name {
+    max-width: 100px;
+    font-size: 0.85rem;
+  }
+  
+  /* Hero Section */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 20px 40px;
+    gap: 20px;
+    min-height: auto;
+    padding-top: 90px;
+  }
+  
+  .detective-img {
+    width: 160px;
+  }
+  
+  .main-title {
+    font-size: 2.8rem;
+  }
+  
+  .title-divider {
+    margin: 12px auto;
+  }
+  
+  .subtitle {
+    font-size: 1.4rem;
+  }
+  
+  .btn-start {
+    padding: 14px 32px;
+    font-size: 1.2rem;
+  }
+  
+  /* Missions Grid */
+  .missions-section {
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-top: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: flex-start;
+  }
+  
+  /* Missions Section Scrollable */
+  .missions-section::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .missions-section::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .missions-section::-webkit-scrollbar-thumb {
+    background: rgba(242, 153, 74, 0.4);
+    border-radius: 4px;
+  }
+  
+  .missions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .missions-header {
+    margin-bottom: 24px;
+  }
+  
+  /* Quiz Page */
+  .quiz-header {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .quiz-title-text {
+    font-size: 1rem;
+  }
+  
+  .quiz-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+  }
+  
+  .quiz-poster {
+    width: 100%;
+  }
+  
+  .poster-frame img {
+    max-height: 250px;
+  }
+  
+  .question-text {
+    font-size: 1.1rem;
+  }
+  
+  .answer-card {
+    padding: 14px 16px;
+  }
+  
+  .quiz-footer {
+    padding: 16px;
+  }
+  
+  /* Drag & Drop */
+  .dd-instruction {
+    margin: 12px 16px;
+    padding: 16px;
+  }
+  
+  .dd-container {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 20px;
+  }
+  
+  .dd-source {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .drag-card {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+  
+  .dd-zones {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  /* Result Page */
+  .result-container {
+    padding: 80px 20px 40px;
+  }
+  
+  .result-title {
+    font-size: 2.5rem;
+  }
+  
+  .result-score-big {
+    font-size: 4rem;
+  }
+  
+  .result-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .btn-result {
+    width: 100%;
+    padding: 14px;
+  }
+  
+  /* Popups */
+  .popup-card {
+    width: 92%;
+    max-width: 450px;
+    padding: 24px 20px;
+    margin: 20px;
+  }
+  
+  .popup-emoji {
+    font-size: 48px;
+  }
+  
+  .popup-title {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+  
+  .popup-body {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  
+  .developer-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  
+  .developer-image {
+    width: 120px;
+    height: 150px;
+  }
+  
+  .bio-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .bio-label {
+    width: auto;
+    margin-right: 4px;
+  }
+  
+  .bio-sep {
+    margin-right: 4px;
+  }
+  
+  /* Final Score Overlay */
+  .final-score-card {
+    width: 90%;
+    padding: 32px 20px;
+  }
+  
+  .final-score-title {
+    font-size: 2rem;
+  }
+  
+  .final-score-big {
+    font-size: 3.5rem;
+  }
+}
+
+/* Small Mobile (max-width: 480px) - Enhanced */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  /* Sidebar - Thinner */
+  .sidebar-menu {
+    width: 56px;
+  }
+  
+  .sidebar-item {
+    padding: 10px 2px;
+  }
+  
+  .sidebar-item span {
+    font-size: 0.55rem;
+  }
+  
+  .sidebar-item .sidebar-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .sidebar-item .sidebar-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .top-bar {
+    padding: 10px 12px 10px 60px;
+  }
+  
+  .sidebar-menu.hidden ~ .top-bar {
+    padding-left: 12px;
+  }
+  
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+  
+  /* Login */
+  .login-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+  
+  .login-icon {
+    font-size: 50px;
+  }
+  
+  .login-title {
+    font-size: 1.6rem;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 80px 16px 30px;
+  }
+  
+  .detective-img {
+    width: 120px;
+  }
+  
+  .main-title {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .btn-start {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+  
+  /* Missions */
+  .missions-section {
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-top: 65px;
+    padding-left: 16px;
+    padding-right: 16px;
+    justify-content: flex-start;
+  }
+  
+  .missions-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .mission-card {
+    margin: 0;
+  }
+  
+  .card-image {
+    height: 140px;
+  }
+  
+  /* Quiz */
+  .quiz-header {
+    padding: 10px 12px;
+  }
+  
+  .quiz-title-text {
+    font-size: 0.9rem;
+    max-width: 150px;
+  }
+  
+  .score-display {
+    padding: 4px 10px;
+  }
+  
+  .score-value {
+    font-size: 1.1rem;
+  }
+  
+  .quiz-container {
+    padding: 12px;
+    gap: 16px;
+  }
+  
+  .poster-frame img {
+    max-height: 180px;
+    border-radius: 12px;
+  }
+  
+  .question-badge {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+  }
+  
+  .question-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .answer-card {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .answer-letter {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .quiz-footer {
+    padding: 12px;
+  }
+  
+  .progress-text {
+    font-size: 0.95rem;
+  }
+  
+  .btn-nav {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+  
+  /* Drag & Drop */
+  .dd-instruction p {
+    font-size: 0.95rem;
+  }
+  
+  .dd-container {
+    padding: 12px;
+  }
+  
+  .drag-card {
+    min-width: 100%;
+  }
+  
+  .dd-zones {
+    gap: 12px;
+  }
+  
+  .zone-header {
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+  
+  .zone-drop-area {
+    min-height: 120px;
+    padding: 12px;
+  }
+  
+  /* Result */
+  .result-container {
+    padding: 70px 16px 30px;
+  }
+  
+  .result-badge {
+    font-size: 60px;
+  }
+  
+  .result-title {
+    font-size: 2rem;
+    margin-top: 12px;
+  }
+  
+  .result-subtitle {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .result-score-big {
+    font-size: 3rem;
+  }
+  
+  .result-characters {
+    gap: 20px;
+  }
+  
+  .result-char {
+    width: 50px;
+    height: 70px;
+  }
+  
+  .rc-head {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Popups */
+  .popup-card {
+    width: 95%;
+    padding: 20px 16px;
+    margin: 16px;
+  }
+  
+  .popup-emoji {
+    font-size: 40px;
+  }
+  
+  .popup-title {
+    font-size: 1.2rem;
+  }
+  
+  .popup-body {
+    font-size: 0.9rem;
+  }
+  
+  .popup-body li {
+    margin-bottom: 8px;
+  }
+  
+  .btn-popup-ok {
+    padding: 10px 24px;
+    font-size: 1rem;
+  }
+  
+  .profile-avatar {
+    font-size: 44px;
+  }
+  
+  .profile-name {
+    font-size: 1.1rem;
+  }
+  
+  .profile-stats {
+    gap: 10px;
+  }
+  
+  .stat-item {
+    padding: 10px;
+  }
+  
+  .stat-value {
+    font-size: 1.2rem;
+  }
+  
+  .developer-image {
+    width: 100px;
+    height: 120px;
+  }
+  
+  .bio-row {
+    font-size: 0.85rem;
+  }
+  
+  .feedback-emoji {
+    font-size: 56px;
+  }
+  
+  .feedback-title {
+    font-size: 1.4rem;
+  }
+  
+  .feedback-text {
+    font-size: 0.95rem;
+  }
+  
+  /* Final Score */
+  .final-score-card {
+    width: 95%;
+    padding: 24px 16px;
+  }
+  
+  .final-score-title {
+    font-size: 1.6rem;
+  }
+  
+  .final-score-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .final-score-big {
+    font-size: 2.8rem;
+  }
+  
+  .final-stat {
+    padding: 12px;
+  }
+  
+  .final-stat-label {
+    font-size: 0.8rem;
+  }
+  
+  .final-stat-value {
+    font-size: 1.2rem;
   }
 }

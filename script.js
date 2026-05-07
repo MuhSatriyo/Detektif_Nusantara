@@ -378,7 +378,7 @@ function loadQuestion() {
   const mission = missions[state.currentMission];
   const question = mission.questions[state.currentQuestion];
 
-  document.getElementById('question-text').textContent = question.text;
+  document.getElementById('question-text').innerHTML = question.text;
   document.getElementById('question-current').textContent = state.currentQuestion + 1;
 
   const grid = document.getElementById('answers-grid');
