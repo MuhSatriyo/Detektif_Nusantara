@@ -22,12 +22,16 @@
       <div class="login-card">
         <div class="login-icon">🕵️</div>
         <h1 class="login-title">Detektif Nusantara</h1>
-        <p class="login-subtitle">Masukkan namamu untuk memulai petualangan!</p>
+        <p class="login-subtitle">Masukkan nama lengkapmu untuk memulai petualangan!</p>
 
         <form class="login-form" id="login-form" onsubmit="handleLogin(event)">
           <div class="form-group">
-            <label for="login-name">Nama Detektif</label>
+            <label for="login-name">Nama Lengkap</label>
             <input type="text" id="login-name" placeholder="Contoh: Budi Santoso" required autocomplete="off" maxlength="50">
+          </div>
+          <div class="form-group">
+            <label for="login-class">Kelas</label>
+            <input type="text" id="login-class" placeholder="Contoh: 5A" required autocomplete="off" maxlength="10">
           </div>
           <button type="submit" class="btn-login" id="btn-login-submit">
             <span class="btn-login-text">🚀 Mulai Petualangan</span>
@@ -44,21 +48,39 @@
 
   <!-- ===== PAGE: HOME ===== -->
   <section id="page-home" class="page">
+    <!-- Sidebar Menu -->
+    <nav class="sidebar-menu" id="sidebar-menu">
+      <div class="sidebar-item" onclick="showDeveloperPopup()">
+        <div class="sidebar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <span>Profil<br>Pengembang</span>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-item" onclick="showObjectivesPopup()">
+        <div class="sidebar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <span>Tujuan<br>Pembelajaran</span>
+      </div>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-item" onclick="showHelpPopup()">
+        <div class="sidebar-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
+        </div>
+        <span>Petunjuk<br>Permainan</span>
+      </div>
+    </nav>
+
     <!-- Top bar -->
     <header class="top-bar">
       <div class="top-bar-left">
-        <button class="icon-btn" title="Profil" onclick="showProfilePopup()">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
-        </button>
-        <button class="icon-btn" title="Petunjuk" onclick="showHelpPopup()">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 1 1 3 3v1"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
-        </button>
-      </div>
-      <div class="top-bar-right">
-        <div class="user-badge" id="user-badge">
+        <div class="user-badge clickable" id="user-badge" onclick="showScorePopup()">
           <span class="user-avatar-icon">🕵️</span>
           <span class="user-name" id="user-name-display">Detektif</span>
         </div>
+      </div>
+      <div class="top-bar-right">
         <button class="icon-btn" id="btn-sound" title="Suara" onclick="toggleSound()">
           <svg id="icon-sound-on" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
           <svg id="icon-sound-off" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
@@ -402,6 +424,41 @@
         </div>
       </div>
       <button class="btn-popup-ok" onclick="closePopup('popup-profile')">Tutup</button>
+    </div>
+  </div>
+
+  <!-- ===== POPUP: PROFIL PENGEMBANG ===== -->
+  <div class="popup-overlay" id="popup-developer">
+    <div class="popup-card popup-card-developer">
+      <div class="popup-close" onclick="closePopup('popup-developer')">✕</div>
+      <div class="developer-profile">
+        <div class="developer-image">
+          <img src="profil_pengembang.png" alt="Profil Pengembang">
+        </div>
+        <div class="developer-bio">
+          <h3 class="popup-title">Profil Pengembang</h3>
+          <div class="bio-details">
+            <div class="bio-row"><span class="bio-label">Nama</span><span class="bio-sep">:</span><span class="bio-value">Abia Brilliant Dinarguna, S.Pd, Gr.</span></div>
+            <div class="bio-row"><span class="bio-label">NIM</span><span class="bio-sep">:</span><span class="bio-value">2501090020</span></div>
+            <div class="bio-row"><span class="bio-label">Prodi</span><span class="bio-sep">:</span><span class="bio-value">S2 Pengembangan Kurikulum</span></div>
+            <div class="bio-row"><span class="bio-label">LPTK</span><span class="bio-sep">:</span><span class="bio-value">Universitas Negeri Semarang</span></div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-popup-ok" onclick="closePopup('popup-developer')">Tutup</button>
+    </div>
+  </div>
+
+  <!-- ===== POPUP: TUJUAN PEMBELAJARAN ===== -->
+  <div class="popup-overlay" id="popup-objectives">
+    <div class="popup-card popup-objectives-card">
+      <div class="popup-close" onclick="closePopup('popup-objectives')">✕</div>
+      <div class="popup-emoji">🎯</div>
+      <h3 class="popup-title">Tujuan Pembelajaran</h3>
+      <div class="popup-body popup-objectives-body">
+        <p class="objective-text">Melalui artikel-artikel nusantara, peserta didik dapat menganalisis kalimat sebab dan akibat dengan benar.</p>
+      </div>
+      <button class="btn-popup-ok" onclick="closePopup('popup-objectives')">Mengerti! 👍</button>
     </div>
   </div>
 

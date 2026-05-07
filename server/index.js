@@ -27,13 +27,14 @@ app.use('/api/', limiter);
 // Login or create user (simple login by name)
 app.post('/api/users/login', async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, class: userClass } = req.body;
 
     if (!name || !name.trim()) {
       return res.status(400).json({ error: 'Nama harus diisi.' });
     }
 
     const sanitizedName = name.trim();
+    const sanitizedClass = userClass ? userClass.trim() : '';
 
     // Try to find existing user
     const [existing] = await db.query(
@@ -51,13 +52,14 @@ app.post('/api/users/login', async (req, res) => {
 
     // Create new user
     const [result] = await db.query(
-      'INSERT INTO users (name) VALUES (?)',
-      [sanitizedName]
+      'INSERT INTO users (name, class) VALUES (?, ?)',
+      [sanitizedName, sanitizedClass]
     );
 
     const newUser = {
       id: result.insertId,
       name: sanitizedName,
+      class: sanitizedClass,
       total_missions: 0,
       total_stars: 0,
       total_score: 0

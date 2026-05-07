@@ -98,11 +98,11 @@ const pages = {
 // API FUNCTIONS
 // ==========================================
 
-async function apiLogin(name) {
+async function apiLogin(name, userClass) {
   const res = await fetch(`${API_URL}/api/users/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name })
+    body: JSON.stringify({ name, class: userClass })
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data.error || 'Login gagal.');
@@ -146,6 +146,7 @@ async function handleLogin(event) {
   event.preventDefault();
 
   const nameInput = document.getElementById('login-name');
+  const classInput = document.getElementById('login-class');
   const errorDiv = document.getElementById('login-error');
   const submitBtn = document.getElementById('btn-login-submit');
   const textSpan = submitBtn.querySelector('.btn-login-text');
@@ -155,9 +156,16 @@ async function handleLogin(event) {
   errorDiv.textContent = '';
 
   const name = nameInput.value.trim();
+  const userClass = classInput.value.trim();
 
   if (!name) {
-    errorDiv.textContent = 'Nama harus diisi!';
+    errorDiv.textContent = 'Nama lengkap harus diisi!';
+    errorDiv.classList.add('show');
+    return;
+  }
+
+  if (!userClass) {
+    errorDiv.textContent = 'Kelas harus diisi!';
     errorDiv.classList.add('show');
     return;
   }
@@ -168,7 +176,7 @@ async function handleLogin(event) {
   submitBtn.disabled = true;
 
   try {
-    const data = await apiLogin(name);
+    const data = await apiLogin(name, userClass);
 
     state.currentUser = data.user;
     state.missionProgress = {};
@@ -797,6 +805,19 @@ function showHelpPopup() {
 function showProfilePopup() {
   updateUserDisplay();
   document.getElementById('popup-profile').classList.add('active');
+}
+
+function showScorePopup() {
+  updateUserDisplay();
+  document.getElementById('popup-profile').classList.add('active');
+}
+
+function showDeveloperPopup() {
+  document.getElementById('popup-developer').classList.add('active');
+}
+
+function showObjectivesPopup() {
+  document.getElementById('popup-objectives').classList.add('active');
 }
 
 function closePopup(popupId) {
