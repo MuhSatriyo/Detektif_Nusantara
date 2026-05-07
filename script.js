@@ -14,7 +14,9 @@ const state = {
   soundOn: true,
   musicOn: true,
   missionsRevealed: false,
-  missionProgress: {}
+  missionProgress: {},
+  startingMission: null,
+  missionsCompleted: new Set()
 };
 
 // ============ MISSION DATA ============
@@ -220,15 +222,16 @@ function handleLogout() {
   state.currentUser = null;
   state.missionProgress = {};
   state.missionsRevealed = false;
+  state.startingMission = null;
+  state.missionsCompleted = new Set();
 
-  // Reset missions section
   const missionsSection = document.getElementById('missions-section');
   missionsSection.classList.remove('visible');
   const heroArea = document.getElementById('hero-area');
   heroArea.classList.remove('hidden');
 
-  // Clear form
   document.getElementById('login-name').value = '';
+  document.getElementById('login-class').value = '';
 
   showPage('login');
   showToast('Berhasil keluar. Sampai jumpa! 👋', 'info');
@@ -293,6 +296,8 @@ function startAdventure() {
 
 function goHomeFromMissions() {
   state.missionsRevealed = false;
+  state.startingMission = null;
+  state.missionsCompleted = new Set();
 
   const heroArea = document.getElementById('hero-area');
   const missionsSection = document.getElementById('missions-section');
@@ -305,7 +310,10 @@ function goHomeFromMissions() {
 function goHome() {
   resetQuiz();
   resetDragDrop();
+  hideFinalScore();
   state.missionsRevealed = false;
+  state.startingMission = null;
+  state.missionsCompleted = new Set();
 
   const heroArea = document.getElementById('hero-area');
   const missionsSection = document.getElementById('missions-section');
@@ -325,6 +333,10 @@ function goHome() {
 // ==========================================
 
 function selectMission(missionIndex) {
+  if (state.startingMission === null) {
+    state.startingMission = missionIndex;
+  }
+  state.missionsCompleted.add(missionIndex);
   state.currentMission = missionIndex;
   state.currentQuestion = 0;
   state.score = 0;
@@ -520,6 +532,7 @@ async function finishMission() {
 }
 
 function showResult(stars) {
+  hideFinalScore();
   document.getElementById('result-score').textContent = state.score;
 
   for (let i = 1; i <= 3; i++) {
@@ -546,6 +559,11 @@ function showResult(stars) {
     msg.textContent = '📖 Jangan menyerah! Coba lagi ya!';
   }
 
+  const nextMissionIndex = (state.currentMission + 1) % missions.length;
+  const isLastInCycle = (nextMissionIndex === state.startingMission);
+  document.getElementById('btn-next-mission').style.display = isLastInCycle ? 'none' : 'inline-block';
+
+  toggleSidebar(false);
   showPage('result');
   startConfetti();
   startFloatingStars();
@@ -620,6 +638,48 @@ function reviewMission() {
   state.currentQuestion = 0;
   loadQuiz();
   showPage('quiz');
+}
+
+function nextMission() {
+  const nextIndex = (state.currentMission + 1) % missions.length;
+  if (nextIndex === state.startingMission) {
+    showFinalScore();
+  } else {
+    state.currentMission = nextIndex;
+    state.currentQuestion = 0;
+    state.score = 0;
+    state.answers = [];
+    document.getElementById('score-value').textContent = '0';
+    hideFinalScore();
+    loadQuiz();
+    showPage('quiz');
+  }
+}
+
+function showFinalScore() {
+  let totalScore = 0;
+  let totalMissions = 0;
+  let totalStars = 0;
+
+  for (let m = 0; m < missions.length; m++) {
+    const progress = state.missionProgress[m];
+    if (progress) {
+      totalScore += progress.score;
+      totalMissions++;
+      totalStars += progress.stars;
+    }
+  }
+
+  document.getElementById('final-total-score').textContent = totalScore;
+  document.getElementById('final-missions').textContent = totalMissions;
+  document.getElementById('final-stars').textContent = totalStars;
+  document.getElementById('final-score-overlay').classList.add('active');
+  startConfetti();
+  startFloatingStars();
+}
+
+function hideFinalScore() {
+  document.getElementById('final-score-overlay').classList.remove('active');
 }
 
 // ==========================================

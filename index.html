@@ -363,12 +363,43 @@
         <button class="btn-result btn-retry" onclick="retryMission()">
           🔄 Ulangi
         </button>
+        <button class="btn-result btn-next-mission" id="btn-next-mission" onclick="nextMission()">
+          ➡️ Misi Selanjutnya
+        </button>
         <button class="btn-result btn-review" onclick="reviewMission()">
           📖 Review
         </button>
         <button class="btn-result btn-home" onclick="goHome()">
           🏠 Beranda
         </button>
+      </div>
+    </div>
+
+    <!-- ===== FINAL SCORE OVERLAY ===== -->
+    <div class="final-score-overlay" id="final-score-overlay">
+      <div class="final-score-card">
+        <div class="final-score-badge">🏆</div>
+        <h1 class="final-score-title">SEMUA MISI SELESAI!</h1>
+        <p class="final-score-subtitle">Kamu adalah Detektif Nusantara sejati!</p>
+        <div class="final-score-area">
+          <div class="final-score-big" id="final-total-score">0</div>
+          <p class="final-score-label">Total Skor Akhir</p>
+        </div>
+        <div class="final-score-details">
+          <div class="final-stat">
+            <span class="final-stat-label">Misi Selesai</span>
+            <span class="final-stat-value" id="final-missions">0</span>
+          </div>
+          <div class="final-stat">
+            <span class="final-stat-label">Total Bintang</span>
+            <span class="final-stat-value" id="final-stars">0</span>
+          </div>
+        </div>
+        <div class="result-actions final-actions">
+          <button class="btn-result btn-home" onclick="goHome()">
+            🏠 Beranda
+          </button>
+        </div>
       </div>
     </div>
 
