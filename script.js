@@ -22,71 +22,51 @@ const missions = [
   {
     id: 0,
     title: 'Misi Banjir',
-    emoji: '🌊',
+    image: 'sebab_akibat_banjir.jpeg',
     caption: 'Banjir di Kota',
     bgGradient: 'linear-gradient(135deg,#1a6b4a,#0d3d2a)',
     questions: [
-      { text: 'Berdasarkan isi poster tersebut, yang merupakan pernyataan sebab-akibat yang benar adalah…', answers: ['Membuang sampah di sungai menyebabkan banjir.', 'Banjir menyebabkan orang membuang sampah di sungai.', 'Banjir membuat sungai menjadi bersih.', 'Sungai yang bersih menyebabkan banjir.'], correct: 0 },
-      { text: 'Manakah kalimat yang menunjukkan hubungan sebab-akibat?', answers: ['Air sungai meluap karena hujan deras sepanjang malam.', 'Hujan deras turun dan air sungai berwarna cokelat.', 'Banjir terjadi di kota dan di desa.', 'Anak-anak bermain air saat banjir.'], correct: 0 },
-      { text: 'Apa akibat dari menebang pohon secara liar di hulu sungai?', answers: ['Sungai menjadi lebih indah.', 'Air sungai menjadi jernih.', 'Banjir lebih mudah terjadi saat hujan deras.', 'Ikan-ikan menjadi lebih banyak.'], correct: 2 },
-      { text: 'Pilih kalimat yang menggunakan kata hubung "sehingga" dengan benar!', answers: ['Hujan deras sehingga selokan penuh sampah.', 'Selokan tersumbat sehingga air tidak bisa mengalir dan terjadi banjir.', 'Banjir sehingga hujan deras turun.', 'Air mengalir sehingga hujan deras.'], correct: 1 },
-      { text: 'Bacalah: "Karena gotong royong membersihkan selokan, lingkungan menjadi bebas banjir." Apa sebab dari kalimat tersebut?', answers: ['Lingkungan menjadi bebas banjir.', 'Gotong royong membersihkan selokan.', 'Selokan penuh dengan sampah.', 'Hujan deras tidak turun.'], correct: 1 }
+      { text: 'Berdasarkan isi poster tersebut, yang merupakan pernyataan sebab-akibat yang benar adalah...', answers: ['Karena curah hujan yang tinggi, rumah dan bangunan menjadi rusak terendam air', 'Lokasi dataran rendah mengakibatkan timbul penyakit', 'Transportasi macet karena sampah', 'Gangguan transportasi dikarenakan timbulnya penyakit'], correct: 0 }
     ]
   },
   {
     id: 1,
     title: 'Misi Hutan',
-    emoji: '🌳',
+    image: 'hutan-kebakaran.jpeg',
     caption: 'Hutan Tropis',
     bgGradient: 'linear-gradient(135deg,#2d8a4e,#1a5c30)',
     questions: [
-      { text: 'Berdasarkan gambar hutan tersebut, manakah hubungan sebab-akibat yang benar?', answers: ['Karena hutan ditebang, hewan kehilangan tempat tinggal.', 'Karena hewan kehilangan tempat tinggal, hutan ditebang.', 'Hutan yang lebat menyebabkan hewan pergi.', 'Hewan-hewan menebang pohon di hutan.'], correct: 0 },
-      { text: 'Apa yang terjadi jika kita terus merusak hutan?', answers: ['Udara menjadi lebih segar.', 'Banjir dan tanah longsor lebih mudah terjadi.', 'Hewan-hewan menjadi lebih senang.', 'Pohon akan tumbuh lebih cepat.'], correct: 1 },
-      { text: 'Manakah kalimat yang menggunakan kata "akibatnya" dengan tepat?', answers: ['Hutan gundul akibatnya pohon ditanam kembali.', 'Penebangan liar terjadi akibatnya hutan menjadi gundul.', 'Akibatnya hutan lebat pohon ditebang.', 'Hutan menjadi gundul akibatnya hujan deras.'], correct: 1 },
-      { text: 'Pohon-pohon di hutan menyerap air hujan. Apa akibatnya jika pohon ditebang semua?', answers: ['Air hujan terserap sempurna.', 'Tidak ada air hujan yang turun.', 'Air hujan tidak terserap dan menyebabkan banjir.', 'Tanah menjadi lebih subur.'], correct: 2 },
-      { text: 'Bacalah: "Hutan disebut paru-paru dunia karena menghasilkan oksigen." Apa akibat dari hutan menghasilkan oksigen?', answers: ['Hutan menjadi gundul.', 'Hewan-hewan kehilangan rumah.', 'Makhluk hidup bisa bernapas dengan baik.', 'Pohon-pohon menjadi mati.'], correct: 2 }
+      { text: 'Perhatikan pernyataan-pernyataan berikut!<br>1. Hutan ditebangi secara liar dan tidak terkendali.<br>2. Banyak hewan kehilangan habitat alaminya.<br>3. Tanah menjadi mudah longsor.<br>4. Pelestarian hutan adalah tanggung jawab bersama.<br>Kalimat yang merupakan sebab ditunjukkan oleh nomor ....', answers: ['1 dan 3', '2 dan 3', '1', '4'], correct: 2 }
     ]
   },
   {
     id: 2,
     title: 'Misi Batu Menangis',
-    emoji: '🪨',
+    image: 'batu_menangis.png',
     caption: 'Legenda Batu Menangis',
     bgGradient: 'linear-gradient(135deg,#4a6fa5,#2c4a6e)',
     questions: [
-      { text: 'Dalam legenda Batu Menangis, mengapa gadis itu berubah menjadi batu?', answers: ['Karena ia rajin membantu ibunya.', 'Karena ia selalu merasa malu dengan ibunya yang miskin dan bersikap durhaka.', 'Karena ia berdoa di gunung.', 'Karena ia tersandung batu besar.'], correct: 1 },
-      { text: 'Manakah kalimat sebab-akibat yang sesuai dengan legenda Batu Menangis?', answers: ['Gadis itu berubah menjadi batu karena sikap durhakanya.', 'Ibu itu menjadi miskin karena anaknya berubah jadi batu.', 'Batu menangis karena hujan deras.', 'Gadis itu senang karena berubah menjadi batu.'], correct: 0 },
-      { text: 'Apa pesan moral dari legenda Batu Menangis?', answers: ['Kita harus selalu memakai baju bagus.', 'Kita harus hormat dan sayang kepada orang tua.', 'Kita tidak boleh pergi ke pasar.', 'Kita harus tinggal di desa.'], correct: 1 },
-      { text: 'Bacalah: "Karena terus menolak mengakui ibunya, gadis itu dikutuk menjadi batu." Apa penyebab kutukan?', answers: ['Gadis itu pergi ke pasar.', 'Gadis itu tidak mau mengakui ibunya sendiri.', 'Gadis itu menangis tersedu-sedu.', 'Gadis itu membantu ibunya.'], correct: 1 },
-      { text: 'Mengapa batu itu disebut "Batu Menangis"?', answers: ['Karena batu itu terkena hujan.', 'Karena dari batu itu mengalir air seperti air mata sebagai penyesalan.', 'Karena batu itu berbentuk wajah manusia.', 'Karena batu itu ada di dekat sungai.'], correct: 1 }
+      { text: 'Seorang gadis cantik bernama Darmi yang durhaka terhadap ibunya. Darmi sombong, manja, dan enggan membantu ibunya yang bekerja keras. Karena sakit hati, ibunya berdoa kepada Tuhan, dan Darmi berubah menjadi batu sambil terus menangis. Batu itu dikenal sebagai Batu Menangis.<br><br>Dari cerita tersebut, pernyataan kalimat sebab-akibat yang benar ialah...', answers: ['Darmi sombong, manja, dan enggan membantu ibunya yang bekerja keras.', 'Karena sakit hati, ibunya berdoa kepada Tuhan', 'Seorang gadis cantik bernama Darmi yang durhaka terhadap ibunya.', 'Karena sakit hati, ibunya berdoa kepada Tuhan, dan Darmi berubah menjadi batu sambil terus menangis.'], correct: 3 }
     ]
   },
   {
     id: 3,
     title: 'Misi Malin Kundang',
-    emoji: '⛰️',
+    image: 'malin_kundang.png',
     caption: 'Legenda Malin Kundang',
     bgGradient: 'linear-gradient(135deg,#8b5e3c,#5c3d24)',
     questions: [
-      { text: 'Mengapa Malin Kundang dikutuk menjadi batu oleh ibunya?', answers: ['Karena Malin Kundang tidak membawa oleh-oleh.', 'Karena Malin Kundang tidak mengakui ibunya dan bersikap sombong.', 'Karena Malin Kundang terlambat pulang ke rumah.', 'Karena Malin Kundang menikah dengan putri raja.'], correct: 1 },
-      { text: 'Manakah kalimat yang menunjukkan hubungan sebab-akibat dari cerita Malin Kundang?', answers: ['Malin Kundang berlayar karena ingin menjadi orang kaya.', 'Ibu Malin Kundang tinggal di pantai.', 'Malin Kundang memiliki kapal yang besar.', 'Di pantai terdapat sebuah batu.'], correct: 0 },
-      { text: 'Apa akibat dari sikap durhaka Malin Kundang terhadap ibunya?', answers: ['Malin Kundang menjadi raja.', 'Malin Kundang menjadi lebih kaya.', 'Malin Kundang dikutuk ibunya dan berubah menjadi batu.', 'Malin Kundang berlayar lagi ke negeri seberang.'], correct: 2 },
-      { text: 'Bacalah: "Karena kesal dan sakit hati, ibu Malin Kundang mengutuk anaknya." Apa penyebab kutukan?', answers: ['Malin Kundang memberikan harta kepada ibunya.', 'Ibu Malin Kundang sedang marah besar.', 'Malin Kundang menolak mengakui ibunya di depan istrinya.', 'Kapal Malin Kundang rusak.'], correct: 2 },
-      { text: 'Pilihlah kalimat yang benar menggunakan kata "karena"!', answers: ['Malin Kundang menjadi batu karena durhaka kepada ibunya.', 'Karena batu ada di pantai Malin Kundang.', 'Malin Kundang kaya karena batu di pantai.', 'Karena kapal besar ibu Malin Kundang sedih.'], correct: 0 }
+      { text: '(1) Setelah bertahun-tahun, Malin Kundang kembali ke kampung halamannya dengan kapal megah.<br>(2) Ibunya yang sudah tua berlari untuk menyambutnya.<br>(3) Malin tidak mau mengakuinya dan mengusirnya karena merasa malu memiliki ibu yang miskin.<br>(4) Ibunya sangat sedih dan kecewa, sehingga ia berdoa kepada Tuhan agar Malin Kundang mendapat balasan atas perbuatannya.<br>Kalimat yang mengandung sebab akibat adalah nomor ....', answers: ['1 dan 2', '2 dan 3', '3 dan 4', '1 dan 4'], correct: 2 }
     ]
   },
   {
     id: 4,
     title: 'Misi Kerak Telor',
-    emoji: '🍚',
-    caption: 'Asal-usul Kerak Telor',
+    image: 'kerak_telur.png',
+    caption: 'Kerak Telor, Kuliner Khas Betawi',
     bgGradient: 'linear-gradient(135deg,#c47a2a,#8b5518)',
     questions: [
-      { text: 'Menurut cerita, mengapa kerak telor menjadi makanan khas Betawi?', answers: ['Karena dibeli dari pedagang asing.', 'Karena tercipta secara tidak sengaja dari sisa nasi dan telur yang dimasak bersama.', 'Karena resep dari raja Mataram.', 'Karena ditemukan di dalam gua.'], correct: 1 },
-      { text: 'Manakah hubungan sebab-akibat yang benar tentang kerak telor?', answers: ['Karena dimasak dengan kelapa parut, kerak telor menjadi gurih dan renyah.', 'Karena kerak telor enak, nasi menjadi sisa.', 'Telur pecah karena kerak telor.', 'Kelapa parut karena kerak telor.'], correct: 0 },
-      { text: 'Apa akibat jika kerak telor dimasak dengan api yang terlalu besar?', answers: ['Kerak telor menjadi lebih empuk.', 'Kerak telor akan gosong dan terasa pahit.', 'Kerak telor menjadi lebih manis.', 'Kerak telor berubah warna menjadi hijau.'], correct: 1 },
-      { text: 'Bacalah: "Karena bahan-bahannya sederhana, kerak telor bisa dibuat oleh semua orang." Apa sebabnya?', answers: ['Kerak telor enak rasanya.', 'Bahan-bahan kerak telor sederhana dan mudah didapat.', 'Semua orang suka kerak telor.', 'Kerak telor dijual di pasar.'], correct: 1 },
-      { text: 'Pilihlah kalimat sebab-akibat yang tepat!', answers: ['Kerak telor dibalik karena sudah matang.', 'Karena sudah matang, kerak telor dibakar.', 'Kerak telor sudah matang karena dibalik.', 'Dibalik karena kerak telor enak.'], correct: 0 }
+      { text: '(1) Kerak telor adalah makanan tradisional Betawi yang terbuat dari beras ketan, telur, dan serundeng.<br>(2) Proses memasaknya yang masih menggunakan arang, sehingga kerak telor memiliki cita rasa yang khas dan unik.<br>(3) Selain itu, banyak orang yang menantikannya setiap tahun karena kuliner ini mudah ditemukan saat acara besar seperti Pekan Raya Jakarta.<br>Kalimat yang mengandung sebab - akibat adalah nomor ....', answers: ['1 dan 2', '2 saja', '2 dan 3', '1 saja'], correct: 2 }
     ]
   }
 ];
@@ -339,7 +319,7 @@ function loadQuiz() {
   const mission = missions[state.currentMission];
 
   document.getElementById('quiz-title').textContent = mission.title;
-  document.getElementById('poster-emoji').textContent = mission.emoji;
+  document.getElementById('poster-image').src = mission.image;
   document.getElementById('poster-caption').textContent = mission.caption;
   document.getElementById('poster-frame').style.background = mission.bgGradient;
   document.getElementById('question-total').textContent = mission.questions.length;
