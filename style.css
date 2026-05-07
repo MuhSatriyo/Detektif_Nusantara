@@ -501,6 +501,12 @@ body {
   border-color: var(--red);
 }
 
+#btn-music.active {
+  border-color: var(--green);
+  background: rgba(39, 174, 96, 0.2);
+  box-shadow: 0 0 15px rgba(39, 174, 96, 0.3);
+}
+
 .user-badge {
   display: flex;
   align-items: center;

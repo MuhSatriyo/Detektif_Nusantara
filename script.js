@@ -12,7 +12,7 @@ const state = {
   score: 0,
   answers: [],
   soundOn: true,
-  musicOn: true,
+  musicOn: false,
   missionsRevealed: false,
   missionProgress: {},
   startingMission: null,
@@ -202,6 +202,9 @@ async function handleLogin(event) {
     // Navigate to home
     showPage('home');
 
+    // Start background music
+    startBackgroundMusic();
+
     if (data.isNew) {
       showToast(`Selamat datang, ${data.user.name}! 🎉`, 'success');
     } else {
@@ -219,6 +222,14 @@ async function handleLogin(event) {
 }
 
 function handleLogout() {
+  const audio = document.getElementById('bg-music');
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+  state.musicOn = false;
+  document.getElementById('btn-music').classList.remove('active');
+
   state.currentUser = null;
   state.missionProgress = {};
   state.missionsRevealed = false;
@@ -908,14 +919,43 @@ document.addEventListener('click', e => {
 // SOUND / MUSIC
 // ==========================================
 
+const musicFiles = ['lagu/lagu1.mp3', 'lagu/lagu2.mp3', 'lagu/lagu3.mp3', 'lagu/lagu4.mp3'];
+let currentMusicIndex = 0;
+
 function toggleSound() {
   state.soundOn = !state.soundOn;
   document.getElementById('icon-sound-on').style.display = state.soundOn ? 'block' : 'none';
   document.getElementById('icon-sound-off').style.display = state.soundOn ? 'none' : 'block';
+
+  const audio = document.getElementById('bg-music');
+  if (audio) {
+    audio.muted = !state.soundOn;
+  }
 }
 
 function toggleMusic() {
-  state.musicOn = !state.musicOn;
+  const audio = document.getElementById('bg-music');
+  if (!audio) return;
+
+  currentMusicIndex = (currentMusicIndex + 1) % musicFiles.length;
+  audio.src = musicFiles[currentMusicIndex];
+  audio.muted = !state.soundOn;
+
+  audio.play().catch(() => {});
+  state.musicOn = true;
+
+  document.getElementById('btn-music').classList.add('active');
+}
+
+function startBackgroundMusic() {
+  const audio = document.getElementById('bg-music');
+  if (!audio || state.musicOn) return;
+
+  audio.src = musicFiles[currentMusicIndex];
+  audio.muted = !state.soundOn;
+  audio.play().catch(() => {});
+  state.musicOn = true;
+  document.getElementById('btn-music').classList.add('active');
 }
 
 // ==========================================
@@ -998,4 +1038,10 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => { this.style.transform = ''; }, 150);
     });
   });
+
+  document.addEventListener('click', function startOnInteraction() {
+    if (state.musicOn) return;
+    startBackgroundMusic();
+    document.removeEventListener('click', startOnInteraction);
+  }, { once: true });
 });
