@@ -6,9 +6,23 @@
   <title>Detektif Nusantara – Temukan Sebab dan Akibat!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="Background-hp.png" as="image" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" href="Background.png" as="image" media="(min-width: 769px)" fetchpriority="high">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="bg-image" id="bg-image"></div>
+  <script>
+    var isMobile = window.innerWidth <= 768;
+    var bgFile = isMobile ? 'Background-hp.png' : 'Background.png';
+    var img = new Image();
+    img.onload = function() {
+      var el = document.getElementById('bg-image');
+      el.style.backgroundImage = "url('" + bgFile + "')";
+      el.classList.add('loaded');
+    };
+    img.src = bgFile;
+  </script>
 
   <!-- Night sky background -->
   <div class="bg-decorations">
